@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://voodka.blog.one"
+base_url = "https://vvone.netlify.app"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
