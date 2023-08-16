@@ -16,7 +16,7 @@ date = 2023-08-15
 > 
 
 
-![Alt 你跟ChatGPT聊过天了吗？](../images/pic-chat.png?raw=true )
+<!-- ![Alt 你跟ChatGPT聊过天了吗？](../images/pic-chat.png?raw=true ) -->
 *你跟ChatGPT聊过天了吗？*
 
 我们除了跟ChatGPT聊天还能做什么？你愿意为了ChatGPT改变你的提问方式吗？ChatGPT可以怎样提高我们的效率？你认可ChatGPT作为一个工具的存在吗？GPT-4来了，它与ChatGPT会有什么区别呢？
@@ -39,14 +39,15 @@ GPT 即 **Generative Pre-trained Transformer**，从它的名字可以看出这�
 
 ## GPT-3 如何进行 Fine-tuning
 
-![Alt Fine-tuning of ChatGPT](../images/fine-tuning.svg?raw=true )*Reference: [Introducing ChatGPT](https://openai.com/blog/chatgpt). Fine-tuning 的过程都是有监督的。第一步是 **few-shot learning**，模型在一个prompts构成的小数据集上进行学习，标注员对输出做 ranking。这一步之后模型将更加 task-specific（tasks指 生成代码/生成文章/完形填空）。第二步是通过人工构建少量样本来训练一个小的**反馈模型**，小模型用于对下一步大模型的输出结果进行评判。这一步中的少量样本将约束模型的输出应该应该具有什么样的格式/风格。第三步将小反馈模型与大模型**串联**起来，辅助大模型再优化输出的表达方式。*
+<!-- ![Alt Fine-tuning of ChatGPT](../images/fine-tuning.svg?raw=true ) -->
+*Reference: [Introducing ChatGPT](https://openai.com/blog/chatgpt). Fine-tuning 的过程都是有监督的。第一步是 **few-shot learning**，模型在一个prompts构成的小数据集上进行学习，标注员对输出做 ranking。这一步之后模型将更加 task-specific（tasks指 生成代码/生成文章/完形填空）。第二步是通过人工构建少量样本来训练一个小的**反馈模型**，小模型用于对下一步大模型的输出结果进行评判。这一步中的少量样本将约束模型的输出应该应该具有什么样的格式/风格。第三步将小反馈模型与大模型**串联**起来，辅助大模型再优化输出的表达方式。*
 
 
 了解一个模型时，可以把它看成一个串联了很多函数的超级函数，它需要一个输入，最后有一个输出，人设定的任务目标将约束它的输出。GPT-3 作为一个语言模型，它的原始输入是文本，最终输出也是文本，它的任务是学习文本生成，因此它的输出文本不是简单的复制粘贴，而是类似统计概率，将预测具有最大出现概率的词作为输出。
 
 GPT-3 的训练数据是海量的文本数据集，这些文本数据来源占比从大到小有 公共网页数据（Common Crawl），有Reddit的博文数据（WebText2），书籍（Books1+Books2），与一些英文维基百科。
 
-![alt GPT dataset](../images/gpt-dataset.png?raw=true)
+<!-- ![alt GPT dataset](../images/gpt-dataset.png?raw=true) -->
 *Reference: [2023 LifeArchitect.ai data - Contents of GPT-3/Pile/Megatron/CC](https://docs.google.com/spreadsheets/d/1O5KVQW1Hx5ZAkcg8AIRjbQLQzx2wVaLl0SqUu-ir9Fs/edit#gid=0)*
 
 而模型训练的过程是反复学习输入，达到设定输出的过程。GPT 的输入在这个过程中得到了负责纠偏的 **prompt** 的增强。这里 prompt ****是指人定义了一个标准答案，告诉模型期望的输出应该是这样的格式。我们说 GPT-3 的训练方式是 Few-shot learning，这里 **Few-shot** 就是指这样的 prompts（有时也用 demonstration 来描述）。
@@ -59,7 +60,7 @@ GPT-3 的训练数据是海量的文本数据集，这些文本数据来源占�
 > 为了解决这个问题，模型泛化成为了重要的一个课题。平衡好模型 generative 的能力，可以低成本地将模型迁移到其他数据集/任务上进行 fine-tuning，一个 GPT-3 模型也就能异化成为专注对话的InstructGPT及ChatGPT，和专注代码生成的Codex。
 > 
 
-![alt gpt family](../images/family.png)
+<!-- ![alt gpt family](../images/family.png) -->
 *Reference: [How does GPT Obtain its Ability? Tracing Emergent Abilities of Language Models to their Sources](https://www.notion.so/b9a57ac0fcf74f30a1ab9e3e36fa1dc1?pvs=21). 可以看到GPT家族的扩展主要在 pre-training 之后的 fine-tuning 阶段完成。这里有 few-shot learning / Instruction tuning / RLHF 等方法来完成 fine-tuning。*
 
 论文中对模型的表现基于这些具体任务进行了分析：
@@ -137,7 +138,7 @@ OpenAI后期给bot加上的伦理约束让它没意思了很多。。但转换�
 > 
 - Perplexity - based on WebGPT?：[试试看](https://www.perplexity.ai/)
     
-    ![alt perplexity](../images/perplexity.png)
+    <!-- ![alt perplexity](../images/perplexity.png) -->
     *对话式搜索，有reference！*
     
 - Google Bard：limited to beta tester，[试试看](https://bard.google.com/)
@@ -184,18 +185,18 @@ prompts选择：instruction prompts / completion prompts / demonstration prompts
 
 - Notion AI【🌟🌟】- 文案优化
 
-![alt notion-ai](../images/notion-ai.png)
+<!-- ![alt notion-ai](../images/notion-ai.png) -->
 *Ask Notion AI to continue write something right here.*
 
 - Github Copilot【🌟🌟】- 代码生成
 
-<table>
+<!-- <table>
   <tr>
     <td><img src="../images/copilot1.png"  alt="copilot1"></td>
     <td><img src="../images/copilot2.png"  alt="copilot2"></td>
     <td><img src="../images/copilot3.png"  alt="copilot3"></td>
   </tr>
-</table>
+</table> -->
 
 
 
