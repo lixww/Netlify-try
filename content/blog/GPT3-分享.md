@@ -2,7 +2,7 @@
 
 ***Category***
 
-[前情提要](https://www.notion.so/7dfd406874de457a845532e00c3962f2?pvs=21) / [GPT-3 介绍](https://www.notion.so/GPT-3-d05398f409304c53abcc46391b8b425c?pvs=21) / [ChatGPT体验](https://www.notion.so/ChatGPT-52208f98f71a405b974734bfeaa37eb3?pvs=21)  / [GPT-3 的应用](https://www.notion.so/GPT-3-7485d747510a4d36a279eb51db0ecc3a?pvs=21) / [一些其他思考](https://www.notion.so/31c73be27ac14c809ccbb27b8103fbe6?pvs=21) 
+[前情提要](#前情提要) / [GPT-3 介绍](#gpt-3-介绍) / [ChatGPT体验](#chatgpt体验)  / [GPT-3 的应用](#gpt-3-的应用) / [一些其他思考](#一些其他思考) 
 
 ---
 
@@ -11,9 +11,9 @@
 > 这里「GPT-3」仅模糊地指代 GPT-3 模型与 GPT-3.5 模型，不做严格区分，因为两种模型的训练方式是基本一致的，主要区别在于参数规模，这也是 InstructGPT 与 ChatGPT 的主要区别之一。
 > 
 
-![你跟ChatGPT聊过天了吗？](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5992b336-3527-4a7d-acee-65feba55b242/Untitled.png)
 
-你跟ChatGPT聊过天了吗？
+![Alt 你跟ChatGPT聊过天了吗？](../images/pic-chat.png?raw=true )
+*你跟ChatGPT聊过天了吗？*
 
 我们除了跟ChatGPT聊天还能做什么？你愿意为了ChatGPT改变你的提问方式吗？ChatGPT可以怎样提高我们的效率？你认可ChatGPT作为一个工具的存在吗？GPT-4来了，它与ChatGPT会有什么区别呢？
 
@@ -25,9 +25,8 @@ ChatGPT 与 它的原型 InstructGPT 都是基于 GPT-3 模型 fine-tuned 的结
 
 > Paper address: [Language Models are Few-shot Learners](https://arxiv.org/abs/2005.14165)
 > 
-
-> 论文笔记：[GPT3 - Note](https://www.notion.so/GPT3-Note-792d2dd06aa94a65a5473567730fed21?pvs=21)
-> 
+> 论文笔记：[GPT3 - Note](https://www.notion.so/.GPT3-Note-792d2dd06aa94a65a5473567730fed21?pvs=21)
+>
 
 GPT 即 **Generative Pre-trained Transformer**，从它的名字可以看出这个模型使用了 transformer 语言模型的方式进行了**泛化的预训练**。预训练完成的 GPT-3 经过 fine-tuning 之后便得到了 ChatGPT。我们会说 GPT 是一个**自回归**的 transformer，这是指它的预训练方式是**无监督**的，并且能够动态地将**前序的上下文信息**加入到输入中来决定输出。这也是 GPT 与 RNN （Recurrent Neural Network，前一代语言处理的主流模型之一）的区别所在，即在利用前序输入的时候，相对 RNN 的 **short-term denpendency**，GPT 具有 long-term 的特点 —— 这里（长期）依赖是指模型能否根据（迄今为止的所有）输入来决定输出，RNN 同样具有这个能力，只是它的依赖更短期，即**上下文窗口**更小。
 
@@ -36,17 +35,15 @@ GPT 即 **Generative Pre-trained Transformer**，从它的名字可以看出这�
 
 ## GPT-3 如何进行 Fine-tuning
 
-![Reference: [Introducing ChatGPT](https://openai.com/blog/chatgpt). Fine-tuning 的过程都是有监督的。第一步是 **few-shot learning**，模型在一个prompts构成的小数据集上进行学习，标注员对输出做 ranking。这一步之后模型将更加 task-specific（tasks指 生成代码/生成文章/完形填空）。第二步是通过人工构建少量样本来训练一个小的**反馈模型**，小模型用于对下一步大模型的输出结果进行评判。这一步中的少量样本将约束模型的输出应该应该具有什么样的格式/风格。第三步将小反馈模型与大模型**串联**起来，辅助大模型再优化输出的表达方式。](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c707f7d0-045a-4016-a2d9-0e5b16940755/ChatGPT_Diagram.svg)
+![Alt Fine-tuning of ChatGPT](../images/fine-tuning.svg?raw=true )*Reference: [Introducing ChatGPT](https://openai.com/blog/chatgpt). Fine-tuning 的过程都是有监督的。第一步是 **few-shot learning**，模型在一个prompts构成的小数据集上进行学习，标注员对输出做 ranking。这一步之后模型将更加 task-specific（tasks指 生成代码/生成文章/完形填空）。第二步是通过人工构建少量样本来训练一个小的**反馈模型**，小模型用于对下一步大模型的输出结果进行评判。这一步中的少量样本将约束模型的输出应该应该具有什么样的格式/风格。第三步将小反馈模型与大模型**串联**起来，辅助大模型再优化输出的表达方式。*
 
-Reference: [Introducing ChatGPT](https://openai.com/blog/chatgpt). Fine-tuning 的过程都是有监督的。第一步是 **few-shot learning**，模型在一个prompts构成的小数据集上进行学习，标注员对输出做 ranking。这一步之后模型将更加 task-specific（tasks指 生成代码/生成文章/完形填空）。第二步是通过人工构建少量样本来训练一个小的**反馈模型**，小模型用于对下一步大模型的输出结果进行评判。这一步中的少量样本将约束模型的输出应该应该具有什么样的格式/风格。第三步将小反馈模型与大模型**串联**起来，辅助大模型再优化输出的表达方式。
 
 了解一个模型时，可以把它看成一个串联了很多函数的超级函数，它需要一个输入，最后有一个输出，人设定的任务目标将约束它的输出。GPT-3 作为一个语言模型，它的原始输入是文本，最终输出也是文本，它的任务是学习文本生成，因此它的输出文本不是简单的复制粘贴，而是类似统计概率，将预测具有最大出现概率的词作为输出。
 
 GPT-3 的训练数据是海量的文本数据集，这些文本数据来源占比从大到小有 公共网页数据（Common Crawl），有Reddit的博文数据（WebText2），书籍（Books1+Books2），与一些英文维基百科。
 
-![Reference: [2023 LifeArchitect.ai data - Contents of GPT-3/Pile/Megatron/CC](https://docs.google.com/spreadsheets/d/1O5KVQW1Hx5ZAkcg8AIRjbQLQzx2wVaLl0SqUu-ir9Fs/edit#gid=0)](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/13571c5b-2fa7-46d8-8ef3-e95108829353/Untitled.png)
-
-Reference: [2023 LifeArchitect.ai data - Contents of GPT-3/Pile/Megatron/CC](https://docs.google.com/spreadsheets/d/1O5KVQW1Hx5ZAkcg8AIRjbQLQzx2wVaLl0SqUu-ir9Fs/edit#gid=0)
+![alt GPT dataset](../images/gpt-dataset.png?raw=true)
+*Reference: [2023 LifeArchitect.ai data - Contents of GPT-3/Pile/Megatron/CC](https://docs.google.com/spreadsheets/d/1O5KVQW1Hx5ZAkcg8AIRjbQLQzx2wVaLl0SqUu-ir9Fs/edit#gid=0)*
 
 而模型训练的过程是反复学习输入，达到设定输出的过程。GPT 的输入在这个过程中得到了负责纠偏的 **prompt** 的增强。这里 prompt ****是指人定义了一个标准答案，告诉模型期望的输出应该是这样的格式。我们说 GPT-3 的训练方式是 Few-shot learning，这里 **Few-shot** 就是指这样的 prompts（有时也用 demonstration 来描述）。
 
@@ -58,9 +55,8 @@ Reference: [2023 LifeArchitect.ai data - Contents of GPT-3/Pile/Megatron/CC](htt
 > 为了解决这个问题，模型泛化成为了重要的一个课题。平衡好模型 generative 的能力，可以低成本地将模型迁移到其他数据集/任务上进行 fine-tuning，一个 GPT-3 模型也就能异化成为专注对话的InstructGPT及ChatGPT，和专注代码生成的Codex。
 > 
 
-![Reference: [How does GPT Obtain its Ability? Tracing Emergent Abilities of Language Models to their Sources](https://www.notion.so/b9a57ac0fcf74f30a1ab9e3e36fa1dc1?pvs=21). 可以看到GPT家族的扩展主要在 pre-training 之后的 fine-tuning 阶段完成。这里有 few-shot learning / Instruction tuning / RLHF 等方法来完成 fine-tuning。](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ff561d19-0a08-46fd-8d99-bfcd7b1efa8c/Untitled.png)
-
-Reference: [How does GPT Obtain its Ability? Tracing Emergent Abilities of Language Models to their Sources](https://www.notion.so/b9a57ac0fcf74f30a1ab9e3e36fa1dc1?pvs=21). 可以看到GPT家族的扩展主要在 pre-training 之后的 fine-tuning 阶段完成。这里有 few-shot learning / Instruction tuning / RLHF 等方法来完成 fine-tuning。
+![alt gpt family](../images/family.png)
+*Reference: [How does GPT Obtain its Ability? Tracing Emergent Abilities of Language Models to their Sources](https://www.notion.so/b9a57ac0fcf74f30a1ab9e3e36fa1dc1?pvs=21). 可以看到GPT家族的扩展主要在 pre-training 之后的 fine-tuning 阶段完成。这里有 few-shot learning / Instruction tuning / RLHF 等方法来完成 fine-tuning。*
 
 论文中对模型的表现基于这些具体任务进行了分析：
 
@@ -137,9 +133,8 @@ OpenAI后期给bot加上的伦理约束让它没意思了很多。。但转换�
 > 
 - Perplexity - based on WebGPT?：[试试看](https://www.perplexity.ai/)
     
-    ![对话式搜索，有reference！](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8b801639-f804-4bc5-bdb3-ec6fea6238f9/Untitled.png)
-    
-    对话式搜索，有reference！
+    ![alt perplexity](../images/perplexity.png)
+    *对话式搜索，有reference！*
     
 - Google Bard：limited to beta tester，[试试看](https://bard.google.com/)
 - Quora - Poe in IOS ：[AppStore-Link](https://apps.apple.com/us/app/poe-fast-helpful-ai-chat/id1640745955)
@@ -185,17 +180,20 @@ prompts选择：instruction prompts / completion prompts / demonstration prompts
 
 - Notion AI【🌟🌟】- 文案优化
 
-![Ask Notion AI to continue write something right here.](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ea56d450-ae56-47e0-afb4-6e875e917b39/Untitled.png)
-
-Ask Notion AI to continue write something right here.
+![alt notion-ai](../images/notion-ai.png)
+*Ask Notion AI to continue write something right here.*
 
 - Github Copilot【🌟🌟】- 代码生成
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cca46b2d-cf75-4d06-9a6b-e4f00e0b8cc0/Untitled.png)
+<table>
+  <tr>
+    <td><img src="../images/copilot1.png"  alt="copilot1"></td>
+    <td><img src="../images/copilot2.png"  alt="copilot2"></td>
+    <td><img src="../images/copilot3.png"  alt="copilot3"></td>
+  </tr>
+</table>
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/df413ef5-74e2-4c29-89f2-b36109bc7343/Untitled.png)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/de060226-f061-41e4-a81e-0773c0685a17/Untitled.png)
 
 ## OpenAI的其他模型API
 
