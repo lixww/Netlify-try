@@ -197,9 +197,9 @@ prompts选择：instruction prompts / completion prompts / demonstration prompts
 
 <table>
   <tr>
-    <td><img src="images/copilot1.png"  alt="copilot1" width=500></td>
-    <td><img src="images/copilot2.png"  alt="copilot2" width=500></td>
-    <td><img src="images/copilot3.png"  alt="copilot3" width=500></td>
+    <td><img src="images/copilot1.png"  alt="copilot1" width=300></td>
+    <td><img src="images/copilot2.png"  alt="copilot2" width=300></td>
+    <td><img src="images/copilot3.png"  alt="copilot3" width=300></td>
   </tr>
 </table>
 
