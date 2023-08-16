@@ -16,7 +16,7 @@ date = 2023-08-15
 > 
 
 
-![你跟ChatGPT聊过天了吗？](../images/pic-chat.png?raw=true )
+![你跟ChatGPT聊过天了吗？](images/pic-chat.png?raw=true )
 *你跟ChatGPT聊过天了吗？*
 
 我们除了跟ChatGPT聊天还能做什么？你愿意为了ChatGPT改变你的提问方式吗？ChatGPT可以怎样提高我们的效率？你认可ChatGPT作为一个工具的存在吗？GPT-4来了，它与ChatGPT会有什么区别呢？
