@@ -1,11 +1,29 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 class="title">
-	This is my first blog made with Zola.
-</h1>
+{{ section.content | safe }}
 
-<p>Click <a href="{{ get_url(path='@/blog/_index.md') }}">here</a> to see my posts.</p>
+{% if config.extra.list_pages %}
 
+{% if paginator %}
+{% set pages = paginator.pages %}
+{% else %}
+{% set pages = section.pages %}
+{% endif %}
+
+<ul class="titleList">
+{% for page in pages %}
+  <li>
+    <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+    <br />
+    {{ page.description }}
+  </li>
+{% endfor %}
+</ul>
+
+{% if paginator %}
+<div class="metaData">{% if paginator.previous %}<a href="{{ paginator.first }}">⥶</a> &nbsp <a href="{{ paginator.previous }}"><</a>{% endif %} &nbsp {{ paginator.current_index }} / {{ paginator.number_pagers }} &nbsp {% if paginator.next %}<a href="{{ paginator.next }}">></a> &nbsp <a href="{{ paginator.last }}">⥸</a>{% endif %}</div>
+{% endif %}
+
+{% endif %}
 {% endblock content %}
-
