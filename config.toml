@@ -2,7 +2,7 @@
 base_url = "https://vvone.netlify.app"
 
 # Whether to automatically compile all Sass files in the sass directory
-compile_sass = true
+compile_sass = false
 
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
@@ -10,10 +10,53 @@ build_search_index = true
 # theme
 theme = "anemone"
 
+title = "Vick's Farm"
+description = "I just leave it empty for a second."
+minify_html = true
+generate_feed = true
+default_language = "en"
+
+taxonomies = [
+    {name = "tags", feed = true}
+]
+
+[languages.cn]
+weight = 2
+languageName = "Chinese"
+languageCode = "cn"
+
 [markdown]
 # Whether to do syntax highlighting
 # Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
-highlight_code = true
+render_emoji = true
+external_links_target_blank = true
+smart_punctuation = true
+highlight_code = false
+highlight_theme = "gruvbox-dark"
+
+[slugify]
+paths = "on"
+taxonomies = "on"
+anchors = "on"
+
+[link_checker]
+internal_level = "warn"
 
 [extra]
 # Put all your custom variables here
+author = "Speyll"
+display_author = true
+
+favicon = "favicon.ico"
+image = ""
+
+default_theme = "light"
+list_pages = false
+twitter_card = false
+
+header_nav = [
+  { url = "/", name_en = "/home/", name_cn = "/主页/" },
+  { url = "/about", name_en = "/about/", name_cn = "/关于/" },
+  { url = "/journal", name_en = "/journal/", name_cn = "/流水/" },
+  { url = "/blog", name_en = "/blog/", name_cn = "/文/" }
+]
