@@ -8,4 +8,4 @@ page_template = "blog-page.html"
 
 > List of all *[tags](/tags)*
 
-<!-- - 🍊 [GPT-3 分享 (on Notion)](https://special-molybdenum-b52.notion.site/GPT-3-1b1d0febfdf646978a231a353448a569?pvs=74) -->
+- 🍊 [Recent readings overview](https://special-molybdenum-b52.notion.site/Recent-readings-overview-b7eb985a79fe45e092cf352de52c1c15?pvs=4)
