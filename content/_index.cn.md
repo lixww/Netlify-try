@@ -26,10 +26,10 @@
 标签分流：
 
 <!-- small letter in real taxonomy! though capital in display text  -->
-- [GPT](./tags/gpt)
-- [On-device ML](./tags/on-device-ml/)
-- [Accessibility](./tags/accessibility)
-- [More](./tags)
+- [GPT](/tags/gpt)
+- [On-device ML](/tags/on-device-ml/)
+- [Accessibility](/tags/accessibility)
+- [More](/tags)
 
 ## Another List
 
