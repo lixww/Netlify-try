@@ -103,3 +103,14 @@
 .webring {
   margin: .375rem;
 }
+
+.toc {
+  position: fixed;
+  right: 1%;
+  top: 10%;
+  width: auto; /* Adjust as needed */
+  max-width: 20%;
+  height: 100%;
+  overflow: auto;
+  font-size: 0.8em; /* Adjust as needed */
+}
