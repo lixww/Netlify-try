@@ -3,7 +3,9 @@
 
 ## Overview
 
-先空一会儿 🍵
+先空一会儿 🍵 
+
+到今天为止可能只有这一页是 cn 适配的 🌏
 
 <!-- > *"Useless blockquote"* -->
 
@@ -15,9 +17,9 @@
 
 随机 Blogs 🍒：
 
-- 🥐 [From UI automation agents to Screen understanding](./blog/accessibility-ui-automation/)
+- 🥐 [From UI automation agents to Screen understanding](/blog/accessibility-ui-automation/)
 <!-- add / to reclaim images' dir -->
-- 🍋 [GPT3 分享](./blog/gpt3fen-xiang/)
+- 🍋 [GPT3 分享](/blog/gpt3fen-xiang/)
 
 ## Tags
 
