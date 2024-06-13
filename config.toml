@@ -47,7 +47,7 @@ internal_level = "warn"
 author = "Vickyee"
 display_author = true
 
-favicon = "favicon.ico"
+favicon = "star.ico"
 image = ""
 
 default_theme = "light"
