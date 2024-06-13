@@ -11,13 +11,23 @@
 
 最近的笔记：
 
-- 🍊 [GPT-3 分享](https://special-molybdenum-b52.notion.site/GPT-3-1b1d0febfdf646978a231a353448a569?pvs=74)
+- 🍊 [Recent readings overview](https://special-molybdenum-b52.notion.site/Recent-readings-overview-b7eb985a79fe45e092cf352de52c1c15?pvs=4)
+
+随机 Blogs 🍒：
+
+- 🥐 [From UI automation agents to Screen understanding](./blog/accessibility-ui-automation/)
+<!-- add / to reclaim images' dir -->
+- 🍋 [GPT3 分享](./blog/gpt3fen-xiang/)
 
 ## Tags
 
 标签分流：
 
-- [example](./tags/example)
+<!-- small letter in real taxonomy! though capital in display text  -->
+- [GPT](./tags/gpt)
+- [On-device ML](./tags/on-device-ml/)
+- [Accessibility](./tags/accessibility)
+- [More](./tags)
 
 ## Another List
 
