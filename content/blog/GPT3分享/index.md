@@ -1,6 +1,8 @@
 +++
 title = "GPT3 分享"
 date = 2023-08-15
+[taxonomies]
+  tags = ["GPT"]
 +++
 
 

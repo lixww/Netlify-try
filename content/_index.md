@@ -11,13 +11,16 @@ Nothing to explain. Just empty for a second. 🍵
 
 Some notes on readings recently:
 
-- 🍊 [GPT-3 分享](https://special-molybdenum-b52.notion.site/GPT-3-1b1d0febfdf646978a231a353448a569?pvs=74)
+<!-- add / to reclaim images' dir -->
+- 🍊 [GPT3 分享](./blog/gpt3fen-xiang/)
 
 ## Tags
 
-Browse our posts by tags:
+Browse posts by tags:
 
-- [example](./tags/example)
+<!-- small letter in real taxonomy! though capital in display text  -->
+- [GPT](./tags/gpt)
+- [More](./tags)
 
 ## Another List
 
