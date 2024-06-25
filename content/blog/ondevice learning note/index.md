@@ -1,6 +1,6 @@
 +++
 title = "On-Device Learning Note"
-date = 2024-06-03
+date = 2024-06-25
 [taxonomies]
   tags = ["On-device ML", "Note", "Edge ML", "Tiny ML"]
 
@@ -39,7 +39,7 @@ iii)Storing & processing the using datasets → new storage-efficient data repre
 ## Reducing model complexity
 
 - Traditional ML
-Naive bayes classifier, support vector machine (SVM), linear regression, logistic regression, select decision tree.
+Naive Bayes classifier, support vector machine (SVM), linear regression, logistic regression, select decision tree.
 - Pruning
 Remove neurons or connections in the network, that don’t contribute significantly to the prediction.
     
@@ -160,3 +160,50 @@ similarity-unpairing (diminish the similarity between on-device models and full-
 encryption; differential privacy; anomaly detection; input data validation.
 - On-device training frameworks:
 Tiny Training Engine; Tiny Transfer Learning; Tiny Train.
+
+# Components in an AI Framework
+
+*Reference: Chapter 4 AI Workflow, and [Chapter 6 AI Frameworks](https://harvard-edge.github.io/cs249r_book/contents/frameworks/frameworks.html)*
+
+![Fig 4.1](On-Device%20Learning%20Note%20906a832982624367b2e60f713507fa1d/Untitled4.png)
+
+*Reference: [Chapter 4 AI Workflow. 4.1 Overview](https://harvard-edge.github.io/cs249r_book/contents/workflow/workflow.html).*
+
+## Computational Graph
+
+There are static one, ie executed after definition, and dynamic one, ie built on-the-fly.
+
+![Fig 6.4.2](On-Device%20Learning%20Note%20906a832982624367b2e60f713507fa1d/Untitled5.png)
+
+Ahead-of-Time compilation of static one results in faster execution compared with dynamic one.
+
+Optimization advantages of static computational graphs:
+- graph fusion
+- constant folding
+- memory layout optimization
+- parallelization
+- hardware-specific optimizations
+
+## ML inference frameworks for embedded systems & microcontrollers
+
+| TensorFlow Lite Micro | Tiny Engine | CMSIS-NN |
+| --- | --- | --- |
+| an interpreter | compiler-based | a software library |
+
+*Comparison of above three frameworks, [see here](https://harvard-edge.github.io/cs249r_book/contents/frameworks/frameworks.html#tbl-compare_frameworks).*
+
+## Future
+
+ML systems Breakdown:
+AI applications → Computational graphs → Tensor programs → Libraries and runtimes → Hardware primitives.
+
+### High-performance compilers & libraries
+*Horizontal perspective.*
+
+TensorFlow XLA, CUTLASS (Nvidia), TensorRT (Nvidia).
+
+### ML for ML frameworks
+
+Hyperparameter optimization, eg Bayesian optimization, random search, grid search.
+Neural architecture search (NAS).
+AutoML.
