@@ -175,6 +175,8 @@ There are static one, ie executed after definition, and dynamic one, ie built on
 
 ![Fig 6.4.2](On-Device%20Learning%20Note%20906a832982624367b2e60f713507fa1d/Untitled5.png)
 
+*Figure in 6.4.2.*
+
 Ahead-of-Time compilation of static one results in faster execution compared with dynamic one.
 
 Optimization advantages of static computational graphs:
