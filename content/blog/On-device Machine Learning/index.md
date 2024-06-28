@@ -8,6 +8,15 @@ date = 2024-03-20
   toc = true
 +++
 
+# Update 0618
+
+On-device models deployment.
+
+- For android: ML Kit, or TensorFlow Lite.
+See here [*Use ML Kit on Android.*](https://developers.google.com/ml-kit)
+See here [*Use TensorFlow Lite on Android.*](https://developer.android.com/ai/custom#androids-custom-ml-stack-high-performance-ml)
+- For iOS: Core ML.
+See here [*Core ML Tools.*](https://apple.github.io/coremltools/docs-guides/)
 
 # TensorFlow Lite
 
