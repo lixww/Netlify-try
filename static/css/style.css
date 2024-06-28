@@ -110,6 +110,7 @@
   top: 10%;
   width: auto; /* Adjust as needed */
   max-width: 20%;
+  max-height: 90vh;
   height: 100%;
   overflow: auto;
   font-size: 0.8em; /* Adjust as needed */

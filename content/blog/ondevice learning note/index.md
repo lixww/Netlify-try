@@ -31,7 +31,7 @@ On-device learning has challenges in small dataset size, accuracy & efficient tr
 
 # On-device Adaptation
 
-*Some details see here - [Model Optimizations](https://www.notion.so/On-Device-Learning-Note-906a832982624367b2e60f713507fa1d?pvs=4#0804d56db76f43eaa876c6702541b1b8).*
+*Some details see here - [Model Optimizations](#model-optimizations).*
 
 Resource consumption comes from → so to have corresponding solutions:
 i)ML model itself → reduce the complexity;
@@ -381,63 +381,26 @@ Pruning, model compression, edge-friendly model architectures.
 Remove redundant / non-essential components of the model, eg connections between neurons, neurons, layers, activations.
 
 - Typical methods:
-    
-    
-    | structured pruning
-    (in training or after training)
-    
-    Towards model-specific substructures. | i) Structures to target for pruning, eg neurons, channels or filters (in CNNs), layers.
-    ii) Establish a criteria for pruning, use some scores as quantitative metrics, eg
-    - weight magnitude, based on absolute values of the weights;
-    - gradient, low magnitudes have little effect on the loss;
-    - activation, consistently low values suggest less relevance;
-    - Taylor expansion, approximates the change in loss function from removing a given weight.
-    iii) Select a pruning strategy.
-    - iterative pruning, eg remove channels results in accuracy degradation.
-    - one-shot pruning, compress models rapidly by a targeting model size, sparsity level, available compute, acceptable accuracy losses. |
-    | --- | --- |
-    | unstructured pruning
-    (after training)
-    
-    Towards individual weights.
-     | More flexible than structured pruning, but challenge with sparse representations.
-    
-    Comparison between structure pruning and unstructured pruning, https://harvard-edge.github.io/cs249r_book/contents/optimizations/optimizations.html#tbl-pruning_methods |
-    | iterative pruning |  |
-    | bayesian pruning |  |
-    | random pruning |  |
-    | sensitivity & movement pruning |  |
-    | lottery ticket hypothesis | Iterate until accuracy stop significantly degrade:
-    i) randomly initialize the weights;
-    ii) train the network until convergence;
-    iii) prune a percentage of the lowest weights;
-    iv) reset weights to initial values. |
+
+| structured pruning<br/>(in training or after training)<br/>Towards model-specific substructures. | i) Structures to target for pruning, eg neurons, channels or filters (in CNNs), layers.<br/>ii) Establish a criteria for pruning, use some scores as quantitative metrics, eg<br/>- weight magnitude, based on absolute values of the weights;<br/>- gradient, low magnitudes have little effect on the loss;<br/>- activation, consistently low values suggest less relevance;<br/>- Taylor expansion, approximates the change in loss function from removing a given weight.<br/>iii) Select a pruning strategy.<br/>- iterative pruning, eg remove channels results in accuracy degradation.<br/>- one-shot pruning, compress models rapidly by a targeting model size, sparsity level, available compute, acceptable accuracy losses. |
+| --- | --- |
+| unstructured pruning<br/>(after training)<br/>Towards individual weights.| More flexible than structured pruning, but challenge with sparse representations.<br/>Comparison between structure pruning and unstructured pruning, https://harvard-edge.github.io/cs249r_book/contents/optimizations/optimizations.html#tbl-pruning_methods |
+| iterative pruning |  |
+| bayesian pruning |  |
+| random pruning |  |
+| sensitivity & movement pruning |  |
+| lottery ticket hypothesis | Iterate until accuracy stop significantly degrade:<br/>i) randomly initialize the weights;<br/>ii) train the network until convergence;<br/>iii) prune a percentage of the lowest weights;<br/>iv) reset weights to initial values. |
+
 - *Further reading: 2023 A Survey on Deep Neural Network Pruning: Taxonomy, Comparison, Analysis, and Recommendations.*
 
 ### Model compression
 
 Knowledge distillation, low-rank matrix factorization, tensor decomposition.
 
-| Knowledge distillation | Train a smaller student model to mimic a larger pre-trained teacher model.
-
-Basic concepts:
-- Use soft targets derived from teacher’s probabilistic predictions, ie a temperature-scaled softmax function with [teacher’s output] → soften probability distributions over classes.
-
-- Loss function matters for distillation loss, between teacher & student, and classification loss, between student & true labels.
-KL (Kullback-Leibler) divergence is commonly used.
-
-- Temperature scaling in softmax function, a parameter controls the granularity of information distilled from teacher. Higher produces softer, and more informative distributions. |
+| Knowledge distillation | Train a smaller student model to mimic a larger pre-trained teacher model.<br/>Basic concepts:<br/>- Use soft targets derived from teacher’s probabilistic predictions, ie a temperature-scaled softmax function with [teacher’s output] → soften probability distributions over classes.<br/>- Loss function matters for distillation loss, between teacher & student, and classification loss, between student & true labels.<br/>KL (Kullback-Leibler) divergence is commonly used.<br/>- Temperature scaling in softmax function, a parameter controls the granularity of information distilled from teacher. Higher produces softer, and more informative distributions. |
 | --- | --- |
-| LRMF (Low-rank matrix factorization) | A mathematical technique in linear algebra & matrix factorization, to approximate a given matrix, by decomposing it into two or more lower-dimensional matrices, as a product of lower-rank matrices.
-
-Cross-realm eg, in recommendation systems, the user-item interaction matrix is factorized to capture latent factors related to user preferences & item attributes.
-
-But there is tradeoff between fewer parameters to store m * k + k * n & more computations in runtime O(mkn) , where k is the rank as a challenging hyper-parameter.
-
-Also information loss during factorization need to be noted. |
-| Tensor decomposition | Higher-dimensional analogue of matrix factorization.
-
-Challenges as well, information loss, and nuanced hyper-parameter tuning. |
+| LRMF (Low-rank matrix factorization) | A mathematical technique in linear algebra & matrix factorization, to approximate a given matrix, by decomposing it into two or more lower-dimensional matrices, as a product of lower-rank matrices.<br/>Cross-realm eg, in recommendation systems, the user-item interaction matrix is factorized to capture latent factors related to user preferences & item attributes.<br/>But there is tradeoff between fewer parameters to store `m * k + k * n` & more computations in runtime `O(mkn)` , where `k` is the rank as a challenging hyper-parameter.<br/>Also information loss during factorization need to be noted. |
+| Tensor decomposition | Higher-dimensional analogue of matrix factorization.<br/>Challenges as well, information loss, and nuanced hyper-parameter tuning. |
 
 ### Edge-aware model design
 
@@ -445,9 +408,7 @@ Design edge ML models through device-aware  NAS (neural architecture search).
 
 - Typical model design techniques:
 
-| Depth-wise separable convolutions
-(commonly used in image processing) | i) depthwise convolution, each input channel is convolved independently with its own set of learnable filters.
-ii) pointwise convolution, combine output of depthwise convolution channels through a 1x1 convolution, creating inter-channel interactions. |
+| Depth-wise separable convolutions<br/>(commonly used in image processing) | i) depthwise convolution, each input channel is convolved independently with its own set of learnable filters. <br/> ii) pointwise convolution, combine output of depthwise convolution channels through a 1x1 convolution, creating inter-channel interactions. |
 | --- | --- |
 | An Example: SqueezeNet 2016 |  |
 | An Example: MobileNet 2017 |  |
