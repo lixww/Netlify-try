@@ -63,11 +63,13 @@ Quantization-aware scaling (QAS), sparse updates.
 ![Untitled](On-Device%20Learning%20Note%20906a832982624367b2e60f713507fa1d/Untitled%201.png)
 
 QAS tries to minimize the quantization error, by adjusting the scale factors during quantization, based on the distribution of weights and activations, without hyper-parameters tuning. 
+
 This involves 2 steps: i)quantization-aware training, ii)quantization & scaling.
 
 ### Sparse updates
 
 Reduce memory consumption of full backward computation, by pruning gradient during backward propagation, ie skipping computing gradients of less important layers and sub-tensors.
+
 Contribution analysis is needed for optimizing sparse update scheme, which measures the the accuracy improvement from biases and weights.
 
 ### Layer-wise training
@@ -82,12 +84,15 @@ Release some of the memory storing intermediate results, which recomputed as nee
 
 - Prioritize sample complexity, which is the amount of data required.
 - Reduce dimensionality & volume of training data, eg 
-i)by transforming training data into a lower-dimensional embedding & factorizing them into a dictionary matrix, multiplied by a block-sparse coefficient matrix; 
-ii)by representing words from a large language training dataset in a more compressed vector format.
+  
+  i)by transforming training data into a lower-dimensional embedding & factorizing them into a dictionary matrix, multiplied by a block-sparse coefficient matrix; 
+
+  ii)by representing words from a large language training dataset in a more compressed vector format.
 
 # Transfer Learning
 
 A model developed for a particular task can be reused as the starting point for a model on a second task. Regarding the context of on-device AI, this is to fine-tune a pre-trained model using smaller dataset on the device. Knowledge transfer, so called sometimes.
+
 Eg researchers (Esteva et al.,2017) developed a transfer learning model to detect cancer in skin images, which is pre-trained on 1.28 million images to classify a  broad range of  objects and then specialized for cancer detection, by training on a dermatologist-curated dataset of skin images.
 
 ## Pre-deployment specialization
@@ -98,6 +103,7 @@ start with a pre-trained model → fine-tuning → validation → deployment.
 ## Post-deployment specialization (on-the-fly personalization)
 
 Workflow:
+
 data collection → model fine-tuning → validation → deployment.
 
 ## Core concepts
@@ -199,6 +205,7 @@ Optimization advantages of static computational graphs:
 ## Future
 
 ML systems Breakdown:
+
 AI applications → Computational graphs → Tensor programs → Libraries and runtimes → Hardware primitives.
 
 ### High-performance compilers & libraries
@@ -209,7 +216,9 @@ TensorFlow XLA, CUTLASS (Nvidia), TensorRT (Nvidia).
 ### ML for ML frameworks
 
 Hyperparameter optimization, eg Bayesian optimization, random search, grid search.
+
 Neural architecture search (NAS).
+
 AutoML.
 
 ## Look into AI training
@@ -251,12 +260,15 @@ Before SOTA, for faster convergence and controllable gradient divergence, tuning
 (Benefit from faster & stable convergence, and shorter training time.)
 
 **Some auto tuners** 🧶
-For big ML, Google’s Vertex AI Cloud (Vertex AutoML), a commercial auto-tuning platform.
-For tiny ML, Edge Impulse’s Efficient On-device Neural Network Tuner (EON Tuner), an automated hyperparameter optimization tool designed for microcontroller ML models.
+
+  For big ML, Google’s Vertex AI Cloud (Vertex AutoML), a commercial auto-tuning platform.
+
+  For tiny ML, Edge Impulse’s Efficient On-device Neural Network Tuner (EON Tuner), an automated hyperparameter optimization tool designed for microcontroller ML models.
 
 ## Runtime complexity of matrix multiplication
 
 As neural networks training comprise linear transformation operation (ie matrix multiplication) and non-linear transformation (ie activation), the former one occupies most of the computing time.
+
 Consider a layer with M-dimension input and N-dimension output, consists K-dimension neurons. The matrix multiplication (by multiply-accumulate operations) happens for computing outputs of inputs * neurons, ie a (M*1) matrix * (1*K) matrix, supposing batch=1 → results in O(M*K). While for element-wise activation function, it is in O(N).
 
 To reduce the time of these linear algebra operations, some optimizations for general sparse/dense matrix-matrix, and matrix-vector operations: 🍤
@@ -273,7 +285,9 @@ To reduce the time of these linear algebra operations, some optimizations for ge
 ## Computation vs. Memory
 
 Computational profiles are different during process of training and inference. It is memory-bound (measured through operations/byte, memory bandwidth), vs compute-bound (measured through FLOPS, or operations/second, arithmetic throughput).
+
 Batch size matters in the above computational profiles.
+
 Hardware optimization is motivated by the above bottlenecks, more compute-side now than memory-side.
 Model architecture poses different computational or memory bottlenecks as well, eg Transformers and MLPs, vs CNNs.
 
@@ -286,6 +300,7 @@ Model architecture poses different computational or memory bottlenecks as well, 
 This could be used both for small and big models.
 
 Typical workflow:
+
 Divide the dataset → replicate the model → parallel computation → gradient aggregation → parallel parameter update → synchronization.
 
 ### Model parallelism
