@@ -40,6 +40,8 @@ I got some beautiful figures to explain.
 
 *How to update UI from other thread using Handler mechanism.*
 
+👆Learned from this blog: [Android的消息處理機制（圖+源碼分析）——Looper,Handler,Message](https://jasonblog.github.io/note/android_note/handler_looper_message_runnable.html).
+
 ![Methods to execute something in a background thread.](Main%20Thread%20Review%20c093a0921c4b46a6b6e2ade028c5a5ab/%25E6%2588%25AA%25E5%25B1%258F_2024-07-17_16.15.56.jpeg)
 
 *Methods to execute something in a background thread.*
