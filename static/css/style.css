@@ -16,6 +16,10 @@
   align-items: center;
 }
 
+body {
+  font-size: 0.96em; /* Adjust this value to your preference */
+}
+
 .accent-data {
   color: var(--accent);
 }
