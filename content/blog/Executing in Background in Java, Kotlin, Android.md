@@ -59,6 +59,8 @@ A `Worker` created in a thread pool is a `Runnable` , it is put into a thread wh
     [JUC线程池：ScheduledThreadPoolExecutor详解 - 数据结构](https://pdai.tech/md/java/thread/java-thread-x-juc-executor-ScheduledThreadPoolExecutor.html#scheduledthreadpoolexecutor%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84), about the `DelayedWorkQueue` used in `Executors.newScheduledThreadPool()`.
     
     [基本功｜一文讲清多线程和多线程同步](https://tech.meituan.com/2024/07/19/multi-threading-and-multi-thread-synchronization.html)
+
+    Package summary: java.util.concurrent, [developer.android](https://developer.android.com/reference/java/util/concurrent/package-summary)
     
 
 # Coroutines in Kotlin

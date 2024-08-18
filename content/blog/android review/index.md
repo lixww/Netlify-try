@@ -442,6 +442,15 @@ Other than using Glide to load resource efficiently, some methods below are wort
     
     This option setting allows BitmapFactory to load a bitmap by reusing an existing bitmap’s memory, if their sizes match requirement.
 
+- Note on reducing image download sizes.
+    
+    *Reference: [developer.android](https://developer.android.com/develop/ui/views/graphics/reduce-image-sizes)*
+    
+
+    ![Deciding on a compression scheme.](./Android%20Review%207c25a3c65dff4ef295adbbc9a644b372/image_res_compression_scheme.png)
+
+    *Deciding on a compression scheme.*
+
 ## Note for Android drawing models
 
 *Ref: Fix custom-drawing issues, [developer.android](https://developer.android.com/develop/ui/views/graphics/hardware-accel#model)*
@@ -541,3 +550,33 @@ It is a very low-level processes as in the native of system. It reclaims cached 
 ![Ref: [Memory allocation among processes](https://developer.android.com/topic/performance/memory-management#memory_pages). kswapd manipulates on pages to reclaim memory.](Android%20Review%207c25a3c65dff4ef295adbbc9a644b372/Untitled%202.png)
 
 *Ref: [Memory allocation among processes](https://developer.android.com/topic/performance/memory-management#memory_pages). kswapd manipulates on pages to reclaim memory.*
+
+## Note for saving UI states
+*Reference: Save UI states, [developer.android](https://developer.android.com/topic/libraries/architecture/saving-states)*
+
+*Other References: See [Handling the configuration change yourself](https://developer.android.com/guide/topics/resources/runtime-changes#HandlingTheChange) . `DataStore` is a modern data storage solution that you should use instead of `SharedPreferences`. Read the [DataStore guide](https://developer.android.com/topic/libraries/architecture/datastore) for more information. To learn how to implement saved instance state using `onSaveInstanceState`, see Saving and restoring transient UI state in the [Activity Lifecycle guide](https://developer.android.com/guide/components/activities/activity-lifecycle#asem).*
+
+*Prerequisite: storage (local & persistent) vs memory (within the app).*
+
+i) `ViewModel`. Use it to handle configuration changes.
+
+ii) Saved instance states. Use it as backup to handle system-initiated process death.
+
+    - Jetpack Compose `rememberSaveable`
+    - Views  `onSaveInstanceState()`
+    - ViewModels `SavedStateHandle` 
+
+iii) Local persistence for non-transient needs. Use it to handle process death for complex or large data.
+
+![Options for preserving UI state.](./Android%20Review%207c25a3c65dff4ef295adbbc9a644b372/image_table_storage.png)
+
+
+*Reference: [Options for preserving UI state.](https://developer.android.com/topic/libraries/architecture/saving-states#options)* 
+
+***Key Point:** [Saved instance state] APIs only save data written to it when the **`Activity`** is stopped. Writing into it in between this lifecycle state defers the save operation till the next stopped lifecycle event.*
+
+***Important:** The **`SavedStateHandle`** only saves data written to it when the **`Activity`** is stopped. Writes to **`SavedStateHandle`** while the **`Activity`** is stopped aren't saved unless the **`Activity`** receives **`onStart`** followed by **`onStop`** again.*
+
+***Note:** In order for the Android system to restore the state of the views in your activity, each view must have a unique ID, supplied by the **`android:id`** attribute.*
+
+***Note: `onSaveInstanceState()`** is not called when the user explicitly closes the activity or in other cases when **`finish()`** is called.*
